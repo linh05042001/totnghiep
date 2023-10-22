@@ -39,7 +39,7 @@ public class CategoryIMPL implements CategoryService {
     }
 
     @Override
-    public boolean deleteUser(long id) {
+    public boolean deleteCategory(long id) {
         if(id>=1){
             Category us=categoryRepository.getById(id);
             if(us!=null){
