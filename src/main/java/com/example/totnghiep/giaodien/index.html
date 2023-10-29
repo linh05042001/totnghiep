@@ -29,5 +29,43 @@
             <li> <a class="fa fa-shopping-bag" href="" ></a></li>
         </div>
     </header>
+    <section id="Slider">
+        <div class="aspect-ratio-169">
+            <img src="images/shop-ban-quan-ao-bong-da-tai-Ha-Noi.jpg">
+            <img src="images/shop-ban-quan-ao-bong-da-tai-Lao-Cai-dep.jpg">
+            <img src="images/mua-ao-bong-da-tai-long-bien.jpg">
+        </div>
+        <div class="dot-container">
+            <div class="dot chon"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </section>
 </body>
+<script>
+    const  imgall=document.querySelectorAll(".aspect-ratio-169 img")
+    const  img1=document.querySelector(".aspect-ratio-169")
+    const cham=document.querySelectorAll(".dot")
+
+    let tongimg=imgall.length
+    let a=0
+    imgall.forEach(function (img,a){
+        img.style.left=a*100+"%"
+        cham[a].addEventListener("click",function (){
+            img1.style.left="-"+ a*100+"%"
+            const cham1=document.querySelector('.chon')
+            cham1.classList.remove("chon")
+            cham[a].classList.add("chon")
+        })
+    })
+    function cd(){
+        a++;
+        if(a>=tongimg) a=0
+        img1.style.left="-"+ a*100+"%"
+        const cham1=document.querySelector('.chon')
+        cham1.classList.remove("chon")
+        cham[a].classList.add("chon")
+    }
+    setInterval(cd,4000)
+</script>
 </html>
