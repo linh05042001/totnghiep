@@ -183,3 +183,164 @@ margin-bottom: 50px;
     margin: 10px 0 10px;
     width: 98%;
 }
+.chitietsp{
+    padding: 100px 0;
+}
+.anh{
+    width: 50%;
+}
+.chon{
+    width: 50%;
+}
+.anhto{
+    width: 78%;
+    padding: 0 8px;
+}
+.anhto img{
+    width: 100%;
+}
+.anhbe{
+    width: 20%;
+}
+.anhbe img{
+    width: 100%;
+}
+.name h1{
+    font-size: 20px;
+    font-family: Arial,Helvetica,sans-serif;
+}
+.gia p{
+    margin: 12px 0;
+    font-size: 16px;
+    font-family: Arial,Helvetica,sans-serif;
+}
+.size span{
+    display: inline-block;
+    padding: 3px 6px;
+    border: 1px solid #cccccc;
+    margin: 13px 11px 13px 0;
+    cursor: pointer;
+}
+.soluong{
+    display: flex;
+    margin-bottom: 20px;
+}
+.soluong input{
+    width: 70px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #333;
+}
+.nut button{
+    width: 100px;
+    height: 50px;
+    display: block;
+}
+.thongtinsp{
+    padding-top: 9px;
+    border: 1px solid rgba(35, 32, 32, 0.17);
+    position: relative;
+}
+.dong{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(35, 32, 32, 0.17);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    top: -15px;
+    left: 50%;
+}
+.chitiettitle{
+    border-bottom: 1px solid rgba(35, 32, 32, 0.17);
+}
+.chitietext{
+    padding-top: 10px;
+    font-size: 15px;
+    font-family: Arial,Helvetica,sans-serif;
+}
+.cart{
+    padding: 100px 10px;
+}
+.cartall{
+    flex: 3;
+    padding-right: 20px;
+}
+.cartall table{
+    width: 100%;
+    text-align: center;
+}
+.cartall table th{
+    padding: 10px;
+    font-size: 17px;
+    font-family: Arial,Helvetica,sans-serif;
+    text-transform: uppercase;
+    color: rgba(35, 32, 32, 0.7);
+    border-collapse: collapse;
+    border-bottom: 3px solid rgba(35, 32, 32, 0.17);
+}
+.cartall table p{
+    font-size: 15px;
+    font-family: Arial,Helvetica,sans-serif;
+    color: rgb(35, 32, 32);
+}
+.cartall table input{
+    width: 50px;
+}
+.cartall table span{
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(35, 32, 32, 0.17);
+    cursor: pointer;
+}
+.cartall table img{
+    width: 200px;
+}
+.cartall table td{
+    padding: 20px 0;
+    border-bottom: 2px solid rgba(35, 32, 32, 0.17);;
+}
+.tongtinh{
+    flex: 1;
+    padding-left: 90px;
+    padding-top: 50px;
+    border-left: 2px solid rgba(35, 32, 32, 0.17);
+}
+.tongtinh table{
+    width: 100%;
+}
+.tongtinh table th{
+    padding: 10px;
+    font-size: 17px;
+    font-family: Arial,Helvetica,sans-serif;
+    text-transform: uppercase;
+    color: rgba(35, 32, 32, 0.7);
+    border-collapse: collapse;
+    border-bottom: 3px solid rgba(35, 32, 32, 0.17);
+}
+.tongtinh table td{
+    padding: 10px;
+    font-size: 15px;
+    font-family: Arial,Helvetica,sans-serif;
+    text-transform: uppercase;
+    color: rgb(35, 32, 32);
+    border-collapse: collapse;
+    border-bottom: 3px solid rgba(35, 32, 32, 0.17);
+}
+.nutthanhtoan{
+    text-align: center;
+    align-items: center;
+}
+.nutthanhtoan button{
+    padding: 0 10px;
+    height: 30px;
+    cursor: pointer;
+}
+.nutthanhtoan button:first-child{
+    background-color: rgba(255, 255, 255, 0.48);
+    border: 3px solid rgba(35, 32, 32, 0.17);
+    margin-right: 20px;
+}
