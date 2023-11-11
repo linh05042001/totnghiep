@@ -1,11 +1,16 @@
 package com.example.totnghiep.Dto;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import java.io.Serializable;
 
-public class LoginDto {
+@Data
+@NoArgsConstructor
+public class LoginDto implements Serializable {
     private String email;
     private String password;
 
-    public LoginDto() {
-    }
+
 
     public LoginDto(String email, String password) {
         this.email = email;

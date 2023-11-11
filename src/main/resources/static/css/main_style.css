@@ -189,7 +189,7 @@ margin-bottom: 50px;
 .anh{
     width: 50%;
 }
-.chon{
+.chonchitietao{
     width: 50%;
 }
 .anhto{
@@ -343,4 +343,46 @@ margin-bottom: 50px;
     background-color: rgba(255, 255, 255, 0.48);
     border: 3px solid rgba(35, 32, 32, 0.17);
     margin-right: 20px;
+}
+.qlnd{
+    padding: 100px 10px;
+}
+.qlndall{
+    flex: 3;
+    padding-right: 20px;
+}
+.qlndall table{
+    width: 100%;
+    text-align: center;
+}
+.qlndall table th{
+    padding: 10px;
+    font-size: 17px;
+    font-family: Arial,Helvetica,sans-serif;
+    text-transform: uppercase;
+    color: rgba(35, 32, 32, 0.7);
+    border-collapse: collapse;
+    border-bottom: 3px solid rgba(35, 32, 32, 0.17);
+}
+.qlndtall table p{
+    font-size: 15px;
+    font-family: Arial,Helvetica,sans-serif;
+    color: rgb(35, 32, 32);
+}
+.qlndall table input{
+    width: 50px;
+}
+.qlndall table span{
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(35, 32, 32, 0.17);
+    cursor: pointer;
+}
+.qlndall table img{
+    width: 200px;
+}
+.qlndall table td{
+    padding: 20px 0;
+    border-bottom: 2px solid rgba(35, 32, 32, 0.17);;
 }

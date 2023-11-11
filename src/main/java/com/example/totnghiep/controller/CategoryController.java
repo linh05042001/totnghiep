@@ -3,11 +3,13 @@ package com.example.totnghiep.controller;
 import com.example.totnghiep.model.Category;
 import com.example.totnghiep.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @CrossOrigin
 @RequestMapping("api/v1/category")
 public class CategoryController {
@@ -17,10 +19,15 @@ public class CategoryController {
 
 
     @GetMapping("/get")
-    public List<Category> getUser(){
-        return categoryService.selectCategory();
+    public String getUser(Model model){
+        model.addAttribute("category1", categoryService.selectCategory());
+        return "sanpham1";
     }
-
+    @GetMapping("/getadminsp")
+    public String getAdmin(Model model){
+        model.addAttribute("categoryall", categoryService.selectCategory());
+        return "admin";
+    }
 
     @PostMapping("/add")
     public Category addCategory(@RequestBody Category category){

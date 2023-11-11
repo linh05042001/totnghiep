@@ -11,19 +11,22 @@ public class Category {
     private long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "color")
-    private String color;
+    @Column(name = "price")
+    private String price;
     @Column(name = "size")
     private String size;
-    @Column(name = "year")
-    private String year;
+    @Column(name = "image")
+    private String image;
+    @Column(name = "number")
+    private int number;
 
-    public Category(long id, String name, String color, String size, String year) {
+    public Category(long id, String name, String price, String size, String image,int number) {
         this.id = id;
         this.name = name;
-        this.color = color;
+        this.price = price;
         this.size = size;
-        this.year = year;
+        this.image = image;
+        this.number=number;
     }
 
     public Category() {
@@ -32,6 +35,30 @@ public class Category {
 
     public long getId() {
         return id;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public void setId(long id) {
@@ -46,14 +73,6 @@ public class Category {
         this.name = name;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public String getSize() {
         return size;
     }
@@ -62,11 +81,4 @@ public class Category {
         this.size = size;
     }
 
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
 }

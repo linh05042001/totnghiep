@@ -27,15 +27,15 @@ public class UserIMPL implements UserService {
             userDto.getId(),
             userDto.getEmail(),
             this.passwordEncoder.encode(userDto.getPassword()),
-            userDto.getName(),userDto.getAge(),userDto.getAddress(),userDto.getPhone(),userDto.getRole()
+            userDto.getRole()
         );
         userRepository.save(user);
-        return user.getName();
+        return user.getEmail();
     }
 
     @Override
     public String loginUer(LoginDto loginDto) {
-        String msg = "";
+
         User user = userRepository.findByEmail(loginDto.getEmail());
         if (user != null) {
             String password = loginDto.getPassword();
@@ -44,7 +44,7 @@ public class UserIMPL implements UserService {
             if (isPwdRight) {
                 Optional<User> user1 = userRepository.findOneByEmailAndPassword(loginDto.getEmail(), encodedPassword);
                 if (user1.isPresent()) {
-                    return "Login Success";
+                    return "index";
                 } else {
                     return "Login Failed";
                 }
@@ -52,7 +52,7 @@ public class UserIMPL implements UserService {
                 return "password Not Match";
             }
         }else {
-            return "Email not exits";
+            return loginDto.getEmail()+'1';
         }
     }
 

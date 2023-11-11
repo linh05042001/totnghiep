@@ -29,9 +29,10 @@ public class CategoryIMPL implements CategoryService {
             Category us=categoryRepository.getById(id);
             if(us!=null){
                 us.setName(category.getName());
-                us.setColor(category.getColor());
+                us.setPrice(category.getPrice());
                 us.setSize(category.getSize());
-                us.setYear(category.getYear());
+                us.setImage(category.getImage());
+                us.setNumber(category.getNumber());
                 return categoryRepository.save(us);
             }
         }

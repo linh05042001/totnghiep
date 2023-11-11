@@ -11,18 +11,20 @@ public class CategoryDto {
 
     private String name;
 
-    private String color;
+    private String price;
 
     private String size;
 
-    private String year;
+    private String image;
+    private int number;
 
-    public CategoryDto(long id, String name, String color, String size, String year) {
+    public CategoryDto(long id, String name, String price, String size, String image,int number) {
         this.id = id;
         this.name = name;
-        this.color = color;
+        this.price = price;
         this.size = size;
-        this.year = year;
+        this.image = image;
+        this.number = number;
     }
 
     public CategoryDto() {
@@ -45,13 +47,6 @@ public class CategoryDto {
         this.name = name;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
 
     public String getSize() {
         return size;
@@ -61,11 +56,27 @@ public class CategoryDto {
         this.size = size;
     }
 
-    public String getYear() {
-        return year;
+    public String getPrice() {
+        return price;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 }
