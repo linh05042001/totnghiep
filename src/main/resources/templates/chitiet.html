@@ -29,12 +29,12 @@
         <li> <a class="fa fa-shopping-bag" href="" ></a></li>
     </div>
 </header>
-<section class="chitietsp">
+<form class="chitietsp" th:object="${detailscart}" th:action="@{/api/v1/cart/adddc}" method="post">
     <div class="thongtin">
         <div class="anhvachon row">
             <div class="anh row">
                 <div class="anhto">
-                    <img src="../static/hinhanh/images%20(2).jfif" alt="">
+                    <img th:src="'/hinhanh/'+ ${categorychitiet.image}" alt="">
                 </div>
                 <div class="anhbe">
                     <img src="/hinhanh/mua-ao-bong-da-tai-long-bien.jpg" alt="">
@@ -44,26 +44,28 @@
             </div>
             <div class="chonchitietao">
                 <div class="name">
-                    <h1>ÁO ĐỘI TUYỂN QUỐC GIA PHÁP</h1>
+                    <h1 th:text="${categorychitiet.name}"></h1>
                 </div>
                 <div class="gia">
-                    <p>600.000đ</p>
+                    <p th:text="${categorychitiet.price}"></p>
                 </div>
                 <div class="size">
                     <p style="font-weight: bold;">Size</p>
                     <div class="fullsize">
-                        <span>S</span>
-                        <span>M</span>
-                        <span>L</span>
-                        <span>XL</span>
+                        <input type="radio" th:field="*{size}" value="S" />S
+                        <input type="radio" th:field="*{size}" value="M" />M
+                        <input type="radio" th:field="*{size}" value="L" />L
+                        <input type="radio" th:field="*{size}" value="XL" />XL<br/>
                     </div>
                 </div>
+                <input type="hidden" th:value="${categorychitiet.id}" id="categoryid" name="categoryid">
+                <input type="hidden" th:value="${idcart.id}" id="cartid" name="cartid">
                 <div class="soluong">
                     <p style="font-weight: bold;">Số lượng:</p>
-                    <input type="number" min="0" value="1">
+                    <input type="number" min="0" value="1" class="form-control" th:field="*{number}" >
                 </div>
                 <div class="nut">
-                    <button><i class="fas fa-shopping-cart"></i><p>MUA HÀNG</p></button>
+                    <button type="submit"><i class="fas fa-shopping-cart"></i><p>MUA HÀNG</p></button>
                 </div>
                 <div class="thongtinsp">
                     <div class="dong">
@@ -84,6 +86,6 @@
             </div>
         </div>
     </div>
-</section>
+</form>
 </body>
 </html>

@@ -1,6 +1,10 @@
 package com.example.totnghiep.controller;
 
+import com.example.totnghiep.Dto.CategoryDto;
+import com.example.totnghiep.Dto.DetailsCartDto;
+import com.example.totnghiep.Dto.LoginDto;
 import com.example.totnghiep.model.Category;
+import com.example.totnghiep.service.CartService;
 import com.example.totnghiep.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,34 +20,65 @@ public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
-
-
-    @GetMapping("/get")
-    public String getUser(Model model){
+    @Autowired
+    private CartService cartService;
+    @ModelAttribute("categorydto")
+    public CategoryDto categoryDto(){
+        return new CategoryDto();
+    }
+    @ModelAttribute("categoryedit")
+    public CategoryDto categoryEdit(){
+        return new CategoryDto();
+    }
+    @ModelAttribute("detailscart")
+    public DetailsCartDto detailsCartDto(){
+        return new DetailsCartDto();
+    }
+    @GetMapping("/get/{id}")
+    public String getUser(@PathVariable("id") long id,Model model){
+        model.addAttribute("idname",id);
         model.addAttribute("category1", categoryService.selectCategory());
         return "sanpham1";
+    }
+    @GetMapping("/getadd")
+    public String getAdd(){
+        return "addcategory";
     }
     @GetMapping("/getadminsp")
     public String getAdmin(Model model){
         model.addAttribute("categoryall", categoryService.selectCategory());
         return "admin";
     }
-
+    @GetMapping("/getedit/{id}")
+    public String getEdit(@PathVariable("id") long id,Model model){
+        model.addAttribute("categoryedit", categoryService.getCategorybyId(id));
+        return "editcategory";
+    }
     @PostMapping("/add")
-    public Category addCategory(@RequestBody Category category){
-        return categoryService.addCategory(category);
+    public String addCategory(@ModelAttribute("categorydto") CategoryDto categoryDto){
+        categoryService.addCategory(categoryDto);
+        return "redirect:/api/v1/category/getadminsp";
     }
 
 
-    @PutMapping("/edit")
-    public Category editCategory(@RequestParam("id") long id,@RequestBody Category category){
-        return  categoryService.editCategory(id,category);
+    @PostMapping("/edit/{id}")
+    public String editCategory(@PathVariable("id") long id,@ModelAttribute("categoryedit") CategoryDto categoryDto){
+        categoryService.editCategory(id,categoryDto);
+        return "redirect:/api/v1/category/getadminsp";
     }
 
 
-    @DeleteMapping("/delete/{id}")
-    public boolean deleteCategory(@PathVariable("id") long id){
-        return categoryService.deleteCategory(id);
+    @RequestMapping( "/delete/{id}")
+    public String deleteCategory(@PathVariable("id") long id){
+        categoryService.deleteCategory(id);
+        return "redirect:/api/v1/category/getadminsp";
     }
 
+    @GetMapping("/getchitiet/{id}/{idname}")
+    public String getChitiet(@PathVariable("id") long id,Model model,@PathVariable("idname") long idname){
+        model.addAttribute("categorychitiet", categoryService.getCategorybyId(id));
+        model.addAttribute("idname", idname);
+        model.addAttribute("idcart",cartService.getCartsByCustomerId(idname));
+        return "chitiet";
+    }
 }

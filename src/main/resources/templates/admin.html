@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="../static/css/main_style.css">
+    <link rel="stylesheet" href="/css/main_style.css">
     <title>Title</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
         <img src="">
     </div>
     <div class="menu">
-        <li><a href="">Quản lý người dùng</a></li>
+        <li><a href="/api/v1/category/getadminsp">Quản lý người dùng</a></li>
         <li><a href="">Quản lý sản phẩm</a></li>
         <li><a href="">Quản lý Bill</a></li>
     </div>
@@ -42,14 +42,14 @@
                         <td><p th:text="${categoryall1.size}"></p></td>
                         <td><p th:text="${categoryall1.number}"></p></td>
                         <td><p th:text="${categoryall1.price}"></p></td>
-                        <td><p>X</p></td>
-                        <td><p>X</p></td>
+                        <td><a th:href="${'/api/v1/category/delete/' + categoryall1.id}">X</a></td>
+                        <td><a th:href="${'/api/v1/category/getedit/' + categoryall1.id}">Edit</a></td>
                     </tr>
                 </table>
             </div>
         </div>
         <div class="add">
-            <button>Thêm</button>
+            <li><a href="/api/v1/category/getadd">Thêm</a></li>
         </div>
     </div>
 </section>

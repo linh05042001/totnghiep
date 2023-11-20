@@ -54,10 +54,11 @@
                     </div>
                 </div>
                 <div class="hienthidanhsach row">
-                    <div class="item" th:each="category: ${category1} ">
+                    <div class="item" th:each="category: ${category1} " >
                         <img th:src="*{'/hinhanh/'+category.image}" alt="">
                         <h1 th:text="${category.name}"></h1>
                         <p th:text="${category.price}"></p>
+                        <a th:href="${'/api/v1/category/getchitiet/' + category.getId()+'/'+idname}"> Them</a>
                     </div>
                 </div>
                 <div class="phantrang row">

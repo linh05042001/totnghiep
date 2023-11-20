@@ -2,7 +2,9 @@ package com.example.totnghiep.service.impl;
 
 import com.example.totnghiep.Dto.LoginDto;
 import com.example.totnghiep.Dto.UserDto;
+import com.example.totnghiep.model.Cart;
 import com.example.totnghiep.model.User;
+import com.example.totnghiep.repository.CartRepository;
 import com.example.totnghiep.repository.UserRepository;
 import com.example.totnghiep.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,22 +17,34 @@ import java.util.Optional;
 public class UserIMPL implements UserService {
     @Autowired
     private UserRepository userRepository;
-
+    @Autowired
+    private CartRepository cartRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
 
     @Override
     public String addUser(UserDto userDto) {
+        User user1 = userRepository.findByEmail(userDto.getEmail());
+        if(user1!=null){
+            return "daco";
+        }else {
+            User user= new User(
+                    userDto.getId(),
+                    userDto.getEmail(),
+                    this.passwordEncoder.encode(userDto.getPassword()),
+                    userDto.getRole()
+            );
+            userRepository.save(user);
+            User user2 = userRepository.findByEmail(userDto.getEmail());
+            Cart cart=new Cart(
+                    user2.getId(),
+                    0
+            );
+            cartRepository.save(cart);
+            return user.getEmail();
+        }
 
-        User user= new User(
-            userDto.getId(),
-            userDto.getEmail(),
-            this.passwordEncoder.encode(userDto.getPassword()),
-            userDto.getRole()
-        );
-        userRepository.save(user);
-        return user.getEmail();
     }
 
     @Override
@@ -44,7 +58,8 @@ public class UserIMPL implements UserService {
             if (isPwdRight) {
                 Optional<User> user1 = userRepository.findOneByEmailAndPassword(loginDto.getEmail(), encodedPassword);
                 if (user1.isPresent()) {
-                    return "index";
+                    if(user.getRole().equals("ad")) return "admin";
+                    else return "redirect:/index/get/"+user.getId();
                 } else {
                     return "Login Failed";
                 }

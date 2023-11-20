@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Home page</title>
+</head>
+<body>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="text-center text-primary">Edit Emp</h4>
+
+          <form class="form-horizontal" th:object="${categoryedit}" th:action="@{'/api/v1/category/edit/' + ${categoryedit.id}}" method="post"  >
+<!--            <input type="hidden" th:value="${categoryedit.id}" name="id">-->
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Name:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" th:value="${categoryedit.name}" th:field="*{name}"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Price:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" th:value="${categoryedit.price}" th:field="*{price}"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Size:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" th:value="${categoryedit.size}" th:field="*{size}"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Image:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" th:value="${categoryedit.image}" th:field="*{image}"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Number:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" th:value="${categoryedit.number}" th:field="*{number}"/>
+              </div>
+            </div>
+
+            <div class="row">
+              <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

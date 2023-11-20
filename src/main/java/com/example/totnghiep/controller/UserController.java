@@ -20,15 +20,28 @@ public class UserController {
     public LoginDto loginDto(){
         return new LoginDto();
     }
+    @ModelAttribute("userdto")
+    public UserDto userDto(){
+        return new UserDto();
+    }
     @GetMapping("/login1")
     public String showLoginForm(){
         return "login";
     }
+    @GetMapping("/dangky")
+    public String dangKyForm(){
+        return "dangky";
+    }
     @PostMapping(path = "/save")
-    public String saveUser(@RequestBody UserDto userDto)
+    public String saveUser(@ModelAttribute("userdto") UserDto userDto)
     {
-        String id = userService.addUser(userDto);
-        return id;
+        String ad = userService.addUser(userDto);
+        if(ad.equals("daco")){
+            return "redirect:/api/v1/user/dangky?emailwrong";
+        }else{
+            return "login";
+        }
+
     }
     @PostMapping(path = "/login")
     public String loginUser(@ModelAttribute("logindto") LoginDto loginDTO)
