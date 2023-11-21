@@ -43,13 +43,14 @@ public class CartController {
     }
     @GetMapping("/getcart/{id}")
     public String getEdit(@PathVariable("id") long id, Model model){
+        cartService.addTotalCart(id);
         model.addAttribute("cart", cartService.getCartById(id));
-
         List<DetailsCart> dt=detailsCartService.getbyCart(id);
         List<CartAllDto> call=new ArrayList<>();
         for (DetailsCart s:dt){
             Category category= categoryService.getCategorybyId(s.getCategoryid());
             CartAllDto ct = new CartAllDto(
+                    s.getId(),
                     s.getCartid(),
                     category.getId(),
                     category.getName(),
@@ -64,5 +65,10 @@ public class CartController {
         }
         model.addAttribute("detailscartall",call);
         return "cart";
+    }
+    @GetMapping("/delete/{id}/{cartidd}")
+    public String delete(@PathVariable("id") long id,@PathVariable("cartidd") long cartidd, Model model){
+        detailsCartService.deleteById(id);
+        return "redirect:/api/v1/cart/getcart/"+cartidd;
     }
 }

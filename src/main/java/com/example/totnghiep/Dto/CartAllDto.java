@@ -1,6 +1,7 @@
 package com.example.totnghiep.Dto;
 
 public class CartAllDto {
+    private long id;
     private long cartid;
     private long categoryid;
 
@@ -37,7 +38,8 @@ public class CartAllDto {
         return name;
     }
 
-    public CartAllDto(long cartid, long categoryid, String name, String image, String size, int number, String totalprice, String total) {
+    public CartAllDto(long id, long cartid, long categoryid, String name, String image, String size, int number, String totalprice, String total) {
+        this.id = id;
         this.cartid = cartid;
         this.categoryid = categoryid;
         this.name = name;
@@ -46,6 +48,14 @@ public class CartAllDto {
         this.number = number;
         this.totalprice = totalprice;
         this.total = total;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setName(String name) {

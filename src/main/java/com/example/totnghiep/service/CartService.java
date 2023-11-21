@@ -10,4 +10,5 @@ public interface CartService {
 
     public Cart getCartsByCustomerId(Long customerid) ;
     public Cart getCartById(Long cartid);
+    public Cart addTotalCart(Long cartid);
  }

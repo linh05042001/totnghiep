@@ -48,7 +48,7 @@
                         <td><p th:text="${cartall.size}"></p></td>
                         <td><p><input type="number" th:value="${cartall.number}" ></p></td>
                         <td><p th:text="${cartall.totalprice}"}>đ</p></td>
-                        <td><p>X</p></td>
+                        <td><a th:href="${'/api/v1/cart/delete/' + cartall.id+'/'+cartall.cartid}">X</a></td>
                     </tr>
                 </table>
             </div>
@@ -67,12 +67,12 @@
                     </tr>
                     <tr>
                         <td>Số tiền cần thanh toán</td>
-                        <td><p style="color: black;font-weight: bold">500000đ</p></td>
+                        <td><p style="color: black;font-weight: bold" th:text="${cart.pricetotal}"></p><p>đ</p></td>
                     </tr>
                 </table>
                 <div class="nutthanhtoan row">
                     <button>Quay lại mua sắm</button>
-                    <button>Thanh Toán</button>
+                    <a th:href="'/api/v1/payment/getpayment/'+${cart.id}">Thanh Toán</a>
                 </div>
             </div>
         </div>
