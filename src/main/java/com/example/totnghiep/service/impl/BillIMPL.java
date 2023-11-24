@@ -8,6 +8,8 @@ import com.example.totnghiep.service.BillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BillIMPL implements BillService {
     @Autowired
@@ -35,4 +37,16 @@ public class BillIMPL implements BillService {
     public Bill getBillByNote(Long customerid, String note) {
         return billRepository.getBillByNote(customerid,note);
     }
+
+    @Override
+    public List<Bill> getAllBill() {
+        return billRepository.findAll();
+    }
+
+    @Override
+    public List<Bill> getBillbyDate(String ngaybd, String ngaykt) {
+        return billRepository.getBillByDate(ngaybd,ngaykt);
+    }
+
+
 }

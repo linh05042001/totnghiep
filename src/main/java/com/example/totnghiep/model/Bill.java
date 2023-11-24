@@ -42,6 +42,9 @@ public class Bill {
         this.paymenttotal = paymenttotal;
     }
 
+    public Bill() {
+    }
+
     public long getId() {
         return id;
     }

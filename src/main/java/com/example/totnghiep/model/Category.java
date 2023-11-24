@@ -19,14 +19,36 @@ public class Category {
     private String image;
     @Column(name = "number")
     private int number;
+    @Column(name="type")
+    private String type;
+    @Column(name = "details")
+    private String details;
 
-    public Category(long id, String name, String price, String size, String image,int number) {
+    public Category(long id, String name, String price, String size, String image, int number, String type, String details) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.size = size;
         this.image = image;
-        this.number=number;
+        this.number = number;
+        this.type = type;
+        this.details = details;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
     }
 
     public Category() {

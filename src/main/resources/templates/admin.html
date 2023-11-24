@@ -13,9 +13,9 @@
         <img src="">
     </div>
     <div class="menu">
-        <li><a href="/api/v1/category/getadminsp">Quản lý người dùng</a></li>
-        <li><a href="">Quản lý sản phẩm</a></li>
-        <li><a href="">Quản lý Bill</a></li>
+        <li><a href="/api/v1/thongke/getthongke">Thống Kê</a></li>
+        <li><a href="/api/v1/category/getadminsp">Quản lý sản phẩm</a></li>
+        <li><a href="/api/v1/bill/getadminbill">Quản lý Bill</a></li>
     </div>
     <div class="khac">
         <li><input placeholder="Tìm kiếm" type="text"><i class="fas fa-search"></i> </li>
@@ -33,6 +33,8 @@
                         <th>Size</th>
                         <th>Số lượng</th>
                         <th>Giá tiền</th>
+                        <th>Chi tiết</th>
+                        <th>Kiểu</th>
                         <th>Xóa</th>
                         <th>Sửa</th>
                     </tr>
@@ -42,6 +44,8 @@
                         <td><p th:text="${categoryall1.size}"></p></td>
                         <td><p th:text="${categoryall1.number}"></p></td>
                         <td><p th:text="${categoryall1.price}"></p></td>
+                        <td><p th:text="${categoryall1.details}"></p></td>
+                        <td><p th:text="${categoryall1.type}"></p></td>
                         <td><a th:href="${'/api/v1/category/delete/' + categoryall1.id}">X</a></td>
                         <td><a th:href="${'/api/v1/category/getedit/' + categoryall1.id}">Edit</a></td>
                     </tr>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2> Thong ke</h2>
+    <form th:action="@{/api/v1/thongke/thongkedate}">
+      <input type="date" name="ngaybd" ><br>
+      <input type="date" name="ngaykt" ><br>
+      <button type="submit" >Chon</button>
+    </form>
+<h2> So tien thu duoc :</h2><a th:text="${thongkedate}"></a>
+</body>
+</html>

@@ -25,7 +25,9 @@ public class CategoryIMPL implements CategoryService {
                     categoryDto.getPrice(),
                     categoryDto.getSize(),
                     categoryDto.getImage(),
-                    categoryDto.getNumber()
+                    categoryDto.getNumber(),
+                    categoryDto.getType(),
+                    categoryDto.getDetails()
             );
             return categoryRepository.save(category);
         }
@@ -42,6 +44,8 @@ public class CategoryIMPL implements CategoryService {
                 us.setSize(categoryDto.getSize());
                 us.setImage(categoryDto.getImage());
                 us.setNumber(categoryDto.getNumber());
+                us.setDetails(categoryDto.getDetails());
+                us.setType(categoryDto.getType());
                 return categoryRepository.save(us);
             }
         }
@@ -73,4 +77,30 @@ public class CategoryIMPL implements CategoryService {
         }
         return null;
     }
+
+    @Override
+    public List<Category> seach(String key) {
+
+        if (key != null) {
+            return categoryRepository.search(key);
+        }
+        return categoryRepository.findAll();
+    }
+
+    @Override
+    public List<Category> Mindan(String type) {
+        return categoryRepository.Mindan(type);
+    }
+
+    @Override
+    public List<Category> Maxdan(String type) {
+        return categoryRepository.Maxdan(type);
+    }
+
+
+    @Override
+    public List<Category> SelectType(String type) {
+        return categoryRepository.SelectType(type);
+    }
+
 }

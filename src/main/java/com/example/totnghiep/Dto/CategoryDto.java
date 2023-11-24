@@ -14,14 +14,34 @@ public class CategoryDto {
 
     private String image;
     private int number;
+    private String type;
+    private String details;
 
-    public CategoryDto(long id, String name, String price, String size, String image,int number) {
+    public CategoryDto(long id, String name, String price, String size, String image, int number, String type, String details) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.size = size;
         this.image = image;
         this.number = number;
+        this.type = type;
+        this.details = details;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
     }
 
     public CategoryDto() {

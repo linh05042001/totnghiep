@@ -44,6 +44,7 @@ public class PaymentController {
     public String getEdit(@PathVariable("id") long id, Model model){
         cartService.addTotalCart(id);
         model.addAttribute("cart", cartService.getCartById(id));
+        model.addAttribute("idname", id);
         List<DetailsCart> dt=detailsCartService.getbyCart(id);
         List<CartAllDto> call=new ArrayList<>();
         for (DetailsCart s:dt){
@@ -110,7 +111,7 @@ public class PaymentController {
         vnp_Params.put("vnp_OrderType", orderType);
 
         vnp_Params.put("vnp_Locale", "vn");
-        vnp_Params.put("vnp_ReturnUrl", VnpayConfig.vnp_ReturnUrl);
+        vnp_Params.put("vnp_ReturnUrl", VnpayConfig.vnp_ReturnUrl+"/"+us.getCustomerid());
         vnp_Params.put("vnp_IpAddr", vnp_IpAddr);
 
         Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT+7"));
@@ -153,8 +154,8 @@ public class PaymentController {
         return "redirect:"+paymentUrl;
     }
 
-    @GetMapping("/getthanhcong")
-    public String getThanhcong(@RequestParam(value = "vnp_Amount") String price,@RequestParam(value = "vnp_ResponseCode") String success,@RequestParam(value = "vnp_OrderInfo") String orderinfo,Model model){
+    @GetMapping("/getthanhcong/{id}")
+    public String getThanhcong(@PathVariable(value = "id") Long id,@RequestParam(value = "vnp_Amount") String price,@RequestParam(value = "vnp_ResponseCode") String success,@RequestParam(value = "vnp_OrderInfo") String orderinfo,Model model){
         int a= Integer.parseInt(price);
 
         model.addAttribute("price", a/100);
@@ -164,6 +165,7 @@ public class PaymentController {
             model.addAttribute("tb","Thanh toan that bai");
         }
         model.addAttribute("orderinfo",orderinfo);
+        model.addAttribute("idname",id);
         return "paysucess";
     }
 }

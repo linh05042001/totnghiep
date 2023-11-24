@@ -13,20 +13,19 @@
         <img src="">
     </div>
     <div class="menu">
-        <li><a href="">Home</a></li>
+        <li><a th:href="${'/index/get/' + idname}">Home</a></li>
         <li><a href="">Sản phẩm</a>
             <ul class="sub-menu">
-                <li><a href="">Áo câu lạc bộ</a></li>
-                <li><a href="">Áo đội tuyển quốc gia</a></li>
+                <li><a th:href="${'/api/v1/category/get/' + idname}">Áo câu lạc bộ</a></li>
+                <li><a th:href="${'/api/v1/category/get2/' + idname}">Áo đội tuyển quốc gia</a></li>
             </ul>
         </li>
         <li><a href="">Thông tin</a></li>
     </div>
     <div class="khac">
-        <li><input placeholder="Tìm kiếm" type="text"><i class="fas fa-search"></i> </li>
-        <li> <a class="fa fa-paw" href="" ></a></li>
-        <li> <a class="fa fa-user" href="" ></a></li>
-        <li> <a class="fa fa-shopping-bag" href="" ></a></li>
+        <li> <a class="fa fa-paw" th:href="${'/index/get/' + idname}" ></a></li>
+        <li> <a class="fa fa-user" href = "/api/v1/user/login1" ></a></li>
+        <li> <a class="fa fa-shopping-bag" th:href="${'/api/v1/cart/getcartall/' + idname}" ></a></li>
     </div>
 </header>
 <form class="chitietsp" th:object="${detailscart}" th:action="@{/api/v1/cart/adddc}" method="post">
@@ -76,9 +75,7 @@
                             <p>Chi tiết :</p>
                         </div>
                         <div class="chitietext">
-                            ÁO quan dep dep<br><br>
-                            ÁO chat lieu tot<br><br>
-                            áo co dãn tốt
+                            <a th:text="${categorychitiet.details}"></a>
                         </div>
                     </div>
                 </div>

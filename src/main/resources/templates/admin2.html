@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="/css/main_style.css">
+  <title>Title</title>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="">
+  </div>
+  <div class="menu">
+    <li><a href="/api/v1/category/getadminsp">Quản lý người dùng</a></li>
+    <li><a href="">Quản lý sản phẩm</a></li>
+    <li><a href="">Quản lý Bill</a></li>
+  </div>
+  <div class="khac">
+    <li><input placeholder="Tìm kiếm" type="text"><i class="fas fa-search"></i> </li>
+    <li> <a class="fa fa-user" href="" ></a></li>
+  </div>
+</header>
+<section class="qlnd">
+  <div class="chitietcart">
+    <div class="thongtincart row">
+      <div class="qlndall">
+        <table>
+          <tr>
+            <th>CustomerId</th>
+            <th>Date</th>
+            <th>Payment Type</th>
+            <th>Address</th>
+            <th>Name</th>
+            <th>Tell</th>
+            <th>Giá tiền</th>
+            <th>Chi tiết</th>
+          </tr>
+          <tr th:each = "billall1: ${billall}">
+            <td><p th:text="${billall1.customerid}"></p></td>
+            <td><p th:text="${billall1.paymentdate}"></p></td>
+            <td><p th:text="${billall1.paymenttype}"></p></td>
+            <td><p th:text="${billall1.address}"></p></td>
+            <td><p th:text="${billall1.name}"></p></td>
+            <td><p th:text="${billall1.tel}"></p></td>
+            <td><p th:text="${billall1.paymenttotal}"></p></td>
+            <td><a th:href="${'/api/v1/bill/getbilld/' + billall1.id}">Xem</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
