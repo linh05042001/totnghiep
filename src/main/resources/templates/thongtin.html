@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<style>
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+</style>
+<body>
+
+<h3>Thông tin</h3>
+
+<div>
+
+        <label class="col-sm-2 control-label">Name: </label>
+        <span th:text="${customer.name}"></span><br></br>
+        <label class="col-sm-2 control-label">Address: </label>
+        <span th:text="${customer.address}"></span><br></br>
+        <label class="col-sm-2 control-label">Tuoi: </label>
+        <span th:text="${customer.ngaysinh}"></span><br></br>
+        <label class="col-sm-2 control-label">Email: </label>
+        <span th:text="${customer.email}"></span><br></br>
+        <label class="col-sm-2 control-label">Tel: </label>
+        <span th:text="${customer.tel}"></span><br></br>
+        <label class="col-sm-2 control-label">Giới tính: </label>
+        <span th:text="${customer.sex}"></span><br></br>
+    <a th:href="${'/api/v1/customer/getedit/' + customer.userid}">Edit</a>
+</div>
+
+</body>
+</html>

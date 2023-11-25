@@ -20,11 +20,10 @@
                 <li><a th:href="${'/api/v1/category/get2/' + idname}">Áo đội tuyển quốc gia</a></li>
             </ul>
         </li>
-        <li><a href="">Thông tin</a></li>
+        <li><a th:href="${'/api/v1/customer/get/' + idname}">Thông tin</a></li>
     </div>
     <div class="khac">
-        <li> <a class="fa fa-paw" th:href="${'/index/get/' + idname}" ></a></li>
-        <li> <a class="fa fa-user" href = "/api/v1/user/login1" ></a></li>
+        <li> <a class="fas fa-sign-out-alt" href = "/api/v1/user/login1" ></a></li>
         <li> <a class="fa fa-shopping-bag" th:href="${'/api/v1/cart/getcartall/' + idname}" ></a></li>
     </div>
 </header>
@@ -35,11 +34,7 @@
                 <div class="anhto">
                     <img th:src="'/hinhanh/'+ ${categorychitiet.image}" alt="">
                 </div>
-                <div class="anhbe">
-                    <img src="/hinhanh/mua-ao-bong-da-tai-long-bien.jpg" alt="">
-                    <img src="/hinhanh/mua-ao-bong-da-tai-long-bien.jpg" alt="">
-                    <img src="/hinhanh/mua-ao-bong-da-tai-long-bien.jpg" alt="">
-                </div>
+
             </div>
             <div class="chonchitietao">
                 <div class="name">

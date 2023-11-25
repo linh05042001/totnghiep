@@ -16,16 +16,17 @@
         <li><a th:href="${'/index/get/' + idname}">Home</a></li>
         <li><a href="">Sản phẩm</a>
             <ul class="sub-menu">
-                <li><a th:href="${'/api/v1/category/get/' + idname}">Áo câu lạc bộ</a></li>
-                <li><a th:href="${'/api/v1/category/get2/' + idname}">Áo đội tuyển quốc gia</a></li>
+                <li><a th:href="${'/api/v1/category/get/' + idname}">Áo đội tuyển quốc gia</a></li>
+                <li><a th:href="${'/api/v1/category/get2/' + idname}">Áo câu lạc bộ</a></li>
             </ul>
         </li>
-        <li><a href="">Thông tin</a></li>
+        <li><a th:href="${'/api/v1/customer/get/' + idname}">Thông tin</a></li>
     </div>
     <div class="khac">
-        <form th:action="@{'/api/v1/category/seach/' + ${idname}}"><li><input placeholder="Tìm kiếm" type="text" name="key"><input type="submit" class="fas fa-search"> </li></form>
-        <li> <a class="fa fa-paw" th:href="${'/index/get/' + idname}" ></a></li>
-        <li> <a class="fa fa-user" href = "/api/v1/user/login1" ></a></li>
+        <div class="row">
+        <form  th:action="@{'/api/v1/category/seach/' + ${idname}}"><input placeholder="Tìm kiếm" type="text" name="key"><button type="submit" class="fas fa-search"> </button></form>
+        </div>
+            <li> <a class="fas fa-sign-out-alt" href = "/api/v1/user/login1" ></a></li>
         <li> <a class="fa fa-shopping-bag" th:href="${'/api/v1/cart/getcartall/' + idname}" ></a></li>
     </div>
 </header>
@@ -62,14 +63,7 @@
                         <a th:href="${'/api/v1/category/getchitiet/' + category.getId()+'/'+idname}"> Them</a>
                     </div>
                 </div>
-                <div class="phantrang row">
-                    <div class="chontrang ">
 
-                    </div>
-                    <div class="chontrang ">
-                        <p><span>&#171;</span>1 2 3 4 5<span>&#187;</span>Trang cuối</p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

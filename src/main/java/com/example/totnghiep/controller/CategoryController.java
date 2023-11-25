@@ -111,7 +111,7 @@ public class CategoryController {
         if(a.equals("b")){
             model.addAttribute("category1", categoryService.Mindan("hai"));
         } else if (a.equals("c")){
-            model.addAttribute("category1", categoryService.Mindan("hai"));
+            model.addAttribute("category1", categoryService.Maxdan("hai"));
         }
 
         return "sanpham2";

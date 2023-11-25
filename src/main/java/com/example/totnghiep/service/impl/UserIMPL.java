@@ -3,8 +3,10 @@ package com.example.totnghiep.service.impl;
 import com.example.totnghiep.Dto.LoginDto;
 import com.example.totnghiep.Dto.UserDto;
 import com.example.totnghiep.model.Cart;
+import com.example.totnghiep.model.Customer;
 import com.example.totnghiep.model.User;
 import com.example.totnghiep.repository.CartRepository;
+import com.example.totnghiep.repository.CustomerRepository;
 import com.example.totnghiep.repository.UserRepository;
 import com.example.totnghiep.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ public class UserIMPL implements UserService {
     private CartRepository cartRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private CustomerRepository customerRepository;
 
 
     @Override
@@ -35,6 +39,7 @@ public class UserIMPL implements UserService {
                     this.passwordEncoder.encode(userDto.getPassword()),
                     userDto.getRole()
             );
+
             userRepository.save(user);
             User user2 = userRepository.findByEmail(userDto.getEmail());
             Cart cart=new Cart(
@@ -42,6 +47,9 @@ public class UserIMPL implements UserService {
                     0
             );
             cartRepository.save(cart);
+            Customer customer=new Customer(0,null,null,null,null,null,null,user2.getId()
+            );
+            customerRepository.save(customer);
             return user.getEmail();
         }
 

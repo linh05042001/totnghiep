@@ -13,20 +13,19 @@
         <img src="">
     </div>
     <div class="menu">
-        <li><a href="">Home</a></li>
+        <li><a th:href="${'/index/get/' + cart.customerid}">Home</a></li>
         <li><a href="">Sản phẩm</a>
             <ul class="sub-menu">
-                <li><a href="">Áo câu lạc bộ</a></li>
-                <li><a href="">Áo đội tuyển quốc gia</a></li>
+                <li><a th:href="${'/api/v1/category/get/' + cart.customerid}">Áo câu lạc bộ</a></li>
+                <li><a th:href="${'/api/v1/category/get2/' + cart.customerid}">Áo đội tuyển quốc gia</a></li>
             </ul>
         </li>
         <li><a href="">Thông tin</a></li>
     </div>
     <div class="khac">
-        <li><input placeholder="Tìm kiếm" type="text"><i class="fas fa-search"></i> </li>
-        <li> <a class="fa fa-paw" href="" ></a></li>
-        <li> <a class="fa fa-user" href="" ></a></li>
-        <li> <a class="fa fa-shopping-bag" href="" ></a></li>
+
+        <li> <a class="fas fa-sign-out-alt" href = "/api/v1/user/login1" ></a></li>
+        <li> <a class="fa fa-shopping-bag" th:href="${'/api/v1/cart/getcartall/' + cart.customerid}" ></a></li>
     </div>
 </header>
 <section class="cart">
@@ -46,9 +45,10 @@
                         <td><img th:src="*{'/hinhanh/'+cartall.image}"></td>
                         <td><p th:text="${cartall.name}"></p></td>
                         <td><p th:text="${cartall.size}"></p></td>
-                        <td><p><input type="number" th:value="${cartall.number}" ></p></td>
+                        <td><p th:text="${cartall.number}" ></p></td>
                         <td><p th:text="${cartall.totalprice}"}>đ</p></td>
                         <td><a th:href="${'/api/v1/cart/delete/' + cartall.id+'/'+cartall.cartid}">X</a></td>
+
                     </tr>
                 </table>
             </div>
@@ -58,20 +58,12 @@
                         <th colspan="2"> HÓA ĐƠN HÀNG HÓA :</th>
                     </tr>
                     <tr>
-                        <td>Tổng sản phẩm:</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>Tổng tiền sản phẩm :</td>
-                        <td><p>500000đ</p></td>
-                    </tr>
-                    <tr>
                         <td>Số tiền cần thanh toán</td>
                         <td><p style="color: black;font-weight: bold" th:text="${cart.pricetotal}"></p><p>đ</p></td>
                     </tr>
                 </table>
                 <div class="nutthanhtoan row">
-                    <button>Quay lại mua sắm</button>
+                    <a th:href="${'/index/get/' + cart.customerid}">Quay lại mua sắm</a>
                     <a th:href="'/api/v1/payment/getpayment/'+${cart.id}">Thanh Toán</a>
                 </div>
             </div>
